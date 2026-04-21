@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoAll - Vyhledavani aut</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="theme.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="theme-shell">
+  <div class="page-layer min-h-screen flex flex-col">
+    <header class="px-4 pt-4 md:px-8 md:pt-6">
+      <div class="glass-nav mx-auto flex max-w-7xl items-center justify-between rounded-[1.75rem] px-5 py-4 md:px-7">
+        <div>
+          <div class="display-font text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">AutoAll</div>
+          <div class="text-sm text-slate-600">Vyber auto, porovnej detaily a zapoj se do diskuze.</div>
+        </div>
+        <nav class="flex items-center gap-3 text-sm text-slate-700">
+          <button id="themeToggle" type="button" class="rounded-full border border-slate-200 px-4 py-2 transition hover:bg-slate-100">Dark mode</button>
+          <a id="adminLink" href="admin.html" class="hidden rounded-full border border-slate-200 px-4 py-2 transition hover:bg-slate-100">Admin</a>
+          <a id="loginStatus" href="login.html" class="rounded-full bg-slate-100 px-4 py-2 transition hover:bg-slate-200">Prihlasit se</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-7xl flex-grow flex-col gap-8 px-4 py-6 md:px-8 md:py-10">
+      <section class="hero-panel fade-up overflow-hidden rounded-[2rem] px-6 py-8 md:px-10 md:py-12">
+        <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div class="space-y-5">
+            <div class="accent-pill">Auto katalog nove generace</div>
+            <div class="space-y-4">
+              <h1 class="display-font max-w-3xl text-4xl font-bold leading-tight text-slate-900 md:text-6xl">
+                Najdi svoje dalsi auto rychleji a s lepsim kontextem.
+              </h1>
+              <p class="max-w-2xl text-base leading-7 text-slate-700 md:text-lg">
+                Moderni prehled modelu, rychle porovnani motoru, spotreby a navazujici forum pro zkusenosti ostatnich ridicu.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card grid gap-4 rounded-[1.75rem] p-5 md:p-6">
+            <div class="text-sm uppercase tracking-[0.25em] text-sky-700">Rychle hledani</div>
+            <input id="searchInput" type="text" placeholder="Zadej nazev auta, treba Octavia" class="input-surface">
+            <div class="grid gap-3 sm:grid-cols-3">
+              <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Katalog</div>
+                <div class="display-font mt-2 text-2xl font-bold text-slate-900">Auta</div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Data</div>
+                <div class="display-font mt-2 text-2xl font-bold text-slate-900">Motory</div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Komunita</div>
+                <div class="display-font mt-2 text-2xl font-bold text-slate-900">Forum</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <div>
+          <div class="section-title text-slate-900">Dostupne modely</div>
+          <p class="text-sm text-slate-400">Klikni na detail a projdi technicke informace i diskuzi.</p>
+        </div>
+        <div id="results" class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
+      </section>
+
+      <section class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="glass-card rounded-[1.75rem] p-6">
+          <div class="accent-pill mb-4">Komunitni katalog</div>
+          <h2 class="display-font text-3xl font-bold text-slate-900">Chybi ti v katalogu konkretni auto?</h2>
+          <p class="mt-3 text-sm leading-7 text-slate-700">
+            Posli navrh na pridani auta. Admin ho uvidi v panelu a muze ho jednim kliknutim schvalit nebo zamitnout.
+          </p>
+          <div class="mt-6 space-y-3 text-sm text-slate-600">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">Navrh se odesle pod tvym uctem, takze je jasne, kdo ho poslal.</div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4">Vypln nazev, motor, spotrebu, roky a odkaz na obrazek. Poznamka je nepovinna.</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[1.75rem] p-6">
+          <div class="mb-4">
+            <div class="section-title text-slate-900">Navrh na nove auto</div>
+            <p class="text-sm text-slate-400">Po odeslani se navrh zobrazi adminovi ke schvaleni.</p>
+          </div>
+          <div class="grid gap-3 md:grid-cols-2">
+            <input id="suggestName" class="input-surface" placeholder="Nazev auta">
+            <input id="suggestEngine" class="input-surface" placeholder="Motor">
+            <input id="suggestConsumption" class="input-surface" placeholder="Spotreba">
+            <input id="suggestYears" class="input-surface" placeholder="Roky vyroby">
+            <input id="suggestImage" class="input-surface md:col-span-2" placeholder="URL obrazku">
+            <textarea id="suggestNote" class="textarea-surface md:col-span-2 min-h-[120px]" placeholder="Poznamka pro admina, napr. proc by auto melo byt v katalogu"></textarea>
+          </div>
+          <p id="suggestMessage" class="hidden mt-4 rounded-2xl px-4 py-3 text-sm"></p>
+          <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="text-sm text-slate-400">Navrh muze odeslat jen prihlaseny uzivatel.</div>
+            <button id="suggestCarBtn" class="shine-button primary">Odeslat navrh</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-4 pb-4 md:px-8 md:pb-6">
+      <div class="glass-nav mx-auto flex max-w-7xl items-center justify-between rounded-[1.5rem] px-5 py-4 text-sm text-slate-400">
+        <span>© 2026 AutoAll</span>
+        <span>Modernized visual concept</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

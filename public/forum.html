@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoAll - Forum</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="theme.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="theme-shell">
+  <div class="page-layer min-h-screen flex flex-col">
+    <header class="px-4 pt-4 md:px-8 md:pt-6">
+      <div class="glass-nav mx-auto flex max-w-6xl items-center justify-between rounded-[1.75rem] px-5 py-4 md:px-7">
+        <div>
+          <div class="display-font text-2xl font-bold text-slate-900" id="forumHeader">AutoAll Forum</div>
+          <div class="text-sm text-slate-600">Zkusenosti ridicu, tipy a realne postrehy.</div>
+        </div>
+        <nav class="flex items-center gap-3 text-sm text-slate-700">
+          <button id="themeToggle" type="button" class="rounded-full border border-slate-200 px-4 py-2 transition hover:bg-slate-100">Dark mode</button>
+          <a id="adminLink" href="admin.html" class="hidden rounded-full border border-slate-200 px-4 py-2 transition hover:bg-slate-100">Admin</a>
+          <a id="loginStatus" href="login.html" class="rounded-full bg-slate-100 px-4 py-2 transition hover:bg-slate-200">Prihlasit se</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-6xl flex-grow flex-col gap-6 px-4 py-6 md:px-8 md:py-10">
+      <a href="index.html" class="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-100">← Zpet</a>
+      <div id="forumPosts" class="space-y-4"></div>
+      <div class="glass-card rounded-[1.75rem] p-5 md:p-6">
+        <div class="mb-4">
+          <div class="section-title text-slate-900">Pridat prispevek</div>
+          <p class="text-sm text-slate-400">Pro pridani prispevku musis byt prihlaseny.</p>
+        </div>
+        <textarea id="newPost" placeholder="Napis svuj prispevek, zkusenost nebo doporuceni..." class="textarea-surface mb-4 min-h-[140px]"></textarea>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="text-sm text-slate-400">
+            Smysluplne zkusenosti pomuzou dalsim lidem vybrat spravne auto.
+          </div>
+          <button id="addPost" class="shine-button primary">Pridat prispevek</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="px-4 pb-4 md:px-8 md:pb-6">
+      <div class="glass-nav mx-auto max-w-6xl rounded-[1.5rem] px-5 py-4 text-center text-sm text-slate-400">
+        Forum navazuje na kazdy model auta a drzi diskuzi prehledne pohromade.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

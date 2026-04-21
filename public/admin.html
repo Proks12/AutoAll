@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - AutoAll</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="theme.css">
+  <script defer src="admin.js"></script>
+</head>
+<body class="theme-shell">
+  <div class="page-layer min-h-screen px-4 py-4 md:px-8 md:py-6">
+    <div class="mx-auto max-w-7xl">
+      <div class="hero-panel mb-8 rounded-[2rem] px-6 py-8 md:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div class="accent-pill mb-4">Admin panel</div>
+            <h1 class="display-font text-4xl font-bold text-slate-900 md:text-5xl">Sprava obsahu, uzivatelu a statistik.</h1>
+            <p class="mt-3 max-w-2xl text-base leading-7 text-slate-700">
+              Jedno misto pro auta v katalogu, role uzivatelu i posledni aktivitu na foru.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <button id="themeToggle" type="button" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-100">Dark mode</button>
+            <a href="index.html" class="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:bg-slate-100">← Zpet na web</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10 grid gap-6 md:grid-cols-3">
+        <div class="stat-card">
+          <h2 class="text-sm uppercase tracking-[0.25em] text-slate-400">Uzivatele</h2>
+          <p id="userCount" class="stat-number mt-4 text-slate-900">-</p>
+        </div>
+        <div class="stat-card">
+          <h2 class="text-sm uppercase tracking-[0.25em] text-slate-400">Prispevky</h2>
+          <p id="postCount" class="stat-number mt-4 text-slate-900">-</p>
+        </div>
+        <div class="stat-card">
+          <h2 class="text-sm uppercase tracking-[0.25em] text-slate-400">Cekajici navrhy</h2>
+          <p id="pendingSuggestions" class="stat-number mt-4 text-slate-900">-</p>
+        </div>
+      </div>
+
+      <div class="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <section class="glass-card rounded-[1.75rem] p-5 md:p-6">
+          <h2 class="section-title mb-4 text-slate-900">Pridat auto</h2>
+          <div class="grid gap-3 md:grid-cols-2">
+            <input id="carName" class="input-surface" placeholder="Nazev (napr. Skoda Octavia)">
+            <input id="carEngine" class="input-surface" placeholder="Motor (napr. 1.6 TDI)">
+            <input id="carConsumption" class="input-surface" placeholder="Spotreba (napr. 4.5 l/100 km)">
+            <input id="carYears" class="input-surface" placeholder="Roky (napr. 2012-2020)">
+            <input id="carImage" class="input-surface md:col-span-2" placeholder="URL obrazku">
+          </div>
+          <button id="addCarBtn" class="shine-button primary mt-4">Pridat auto</button>
+        </section>
+
+        <section class="glass-card rounded-[1.75rem] p-5 md:p-6">
+          <h2 class="section-title mb-4 text-slate-900">Uzivatele</h2>
+          <div id="users" class="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white"></div>
+        </section>
+      </div>
+
+      <div class="mt-6 grid gap-6 xl:grid-cols-2">
+        <section class="glass-card rounded-[1.75rem] p-5 md:p-6 xl:col-span-2">
+          <h2 class="section-title mb-4 text-slate-900">Navrhy uzivatelu na pridani auta</h2>
+          <div id="suggestions" class="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white"></div>
+        </section>
+
+        <section class="glass-card rounded-[1.75rem] p-5 md:p-6">
+          <h2 class="section-title mb-4 text-slate-900">Auta v databazi</h2>
+          <div id="carsList" class="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white"></div>
+        </section>
+
+        <section class="glass-card rounded-[1.75rem] p-5 md:p-6">
+          <h2 class="section-title mb-4 text-slate-900">Posledni prispevky</h2>
+          <div id="posts" class="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
