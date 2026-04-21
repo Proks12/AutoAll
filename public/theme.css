@@ -218,6 +218,10 @@ body.theme-shell[data-theme="dark"] .text-sky-700 {
   box-shadow: var(--shadow);
 }
 
+body.theme-shell[data-theme="dark"] .stat-card {
+  background: rgba(10, 24, 43, 0.82);
+}
+
 .stat-number {
   font-family: "Space Grotesk", sans-serif;
   font-size: 2.3rem;
